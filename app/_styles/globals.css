@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* đoạn code này để ẩn thanh ngang doc khi scroll */
+body::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected),.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover{
+  background-color: #b78343!important;
+}
+
+.rdp-dropdown{
+  color: #b78343;
+}
+
+
+@media screen and (max-width: 650px) {
+  .rdp-months {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .rdp-month {
+    margin: 0;
+  }
+  .rdp,
+  .root_qxxl {
+    --rdp-cell-size: 45px;
+    --rdp-caption-font-size: 16px;
+  }
+}
+
+.space-y-2>:not([hidden])~:not([hidden]){
+  margin: 0 !important;
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid theme('colors.primary.900');
+    border-right-color: theme('colors.primary.200');
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid theme('colors.primary.200');
+    border-right-color: transparent;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+/* For data picker */
+/* .rdp {
+  --rdp-cell-size: 32px !important;
+  --rdp-accent-color: theme('colors.accent.500') !important;
+  --rdp-background-color: theme('colors.accent.600') !important;
+  margin: 0 !important;
+} */
